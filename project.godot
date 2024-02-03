@@ -11,5 +11,36 @@ config_version=5
 [application]
 
 config/name="Lynchy Adventure"
+config/description="A little 2D RPG telling the story of a little ninja in the Lynchy worlds"
+config/version="0.1.0"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://scenes/": "teal",
+"res://scripts/": "purple"
+}
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Enemy"
+2d_physics/layer_3="Environment"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true
