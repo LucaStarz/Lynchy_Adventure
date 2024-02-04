@@ -12,7 +12,7 @@ var direction: String = "down"
 func move_player(delta: float) -> void:
 	var dir: Vector2 = Input.get_vector("left", "right", "up", "down")
 	if dir != Vector2.ZERO:
-		self.velocity = dir.normalized() * speed
+		self.velocity = dir.normalized() * self.speed
 	else:
 		self.velocity.x = move_toward(self.velocity.x, 0.0, self.decel * delta)
 		self.velocity.y = move_toward(self.velocity.y, 0.0, self.decel * delta)

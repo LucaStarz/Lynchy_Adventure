@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://na1cpiw8vqi"]
+
+[ext_resource type="Texture2D" uid="uid://d13bj2lbpwrie" path="res://assets/gfx/animated/flower.png" id="1_6jyra"]
+[ext_resource type="Script" path="res://scripts/animated/flower.gd" id="1_h1ilh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qx8uf"]
+atlas = ExtResource("1_6jyra")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgjlv"]
+atlas = ExtResource("1_6jyra")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78kpr"]
+atlas = ExtResource("1_6jyra")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qqod"]
+atlas = ExtResource("1_6jyra")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k88lj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qx8uf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgjlv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78kpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qqod")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqss4"]
+size = Vector2(14, 6)
+
+[node name="Flower" type="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_h1ilh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_k88lj")
+frame_progress = 0.318511
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_iqss4")

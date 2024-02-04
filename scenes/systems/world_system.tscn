@@ -8,6 +8,7 @@ y_sort_enabled = true
 script = ExtResource("1_q7qtu")
 
 [node name="PlayerGreen" parent="." instance=ExtResource("2_50846")]
+position = Vector2(174, 45)
 
 [node name="Zones" type="Node2D" parent="."]
 y_sort_enabled = true

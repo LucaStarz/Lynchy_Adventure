@@ -32,7 +32,7 @@ class ConfigData:
 
 class PlayerData:
 	var zone: int = 0
-	var position: Vector2 = Vector2(0, 0)
+	var position: Vector2 = Vector2(175, 45)
 	
 	static func data_file() -> String:
 		return "user://player.lad"

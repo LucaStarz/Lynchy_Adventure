@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://481t5msplqum"]
+
+[ext_resource type="Texture2D" uid="uid://nonqvf02ca4r" path="res://assets/gfx/animated/flag_black.png" id="1_wh3ah"]
+[ext_resource type="Script" path="res://scripts/animated/default.gd" id="2_3v0h5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6xx7"]
+atlas = ExtResource("1_wh3ah")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbxkq"]
+atlas = ExtResource("1_wh3ah")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6sgt"]
+atlas = ExtResource("1_wh3ah")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji4wu"]
+atlas = ExtResource("1_wh3ah")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qoc61"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6xx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbxkq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6sgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji4wu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="FlagBlack" type="AnimatedSprite2D"]
+z_index = 2
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_qoc61")
+frame_progress = 0.74172
+script = ExtResource("2_3v0h5")

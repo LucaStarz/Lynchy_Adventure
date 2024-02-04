@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddiysrchqowv7"]
+
+[ext_resource type="Texture2D" uid="uid://ccspnfhxl2iqe" path="res://assets/gfx/animated/mill_propeller_2.png" id="1_o0kus"]
+[ext_resource type="Script" path="res://scripts/animated/default.gd" id="2_sa7dr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oudwa"]
+atlas = ExtResource("1_o0kus")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgffl"]
+atlas = ExtResource("1_o0kus")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikqem"]
+atlas = ExtResource("1_o0kus")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1tcx"]
+atlas = ExtResource("1_o0kus")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tb2ro"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oudwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgffl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikqem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1tcx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="MillPropeller2" type="AnimatedSprite2D"]
+z_index = 2
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_tb2ro")
+script = ExtResource("2_sa7dr")

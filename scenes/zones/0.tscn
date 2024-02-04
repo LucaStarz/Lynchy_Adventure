@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlvuoskvf2ick"]
+[gd_scene load_steps=6 format=3 uid="uid://dlvuoskvf2ick"]
 
 [ext_resource type="Script" path="res://scripts/systems/zone.gd" id="1_7ev2x"]
 [ext_resource type="TileSet" uid="uid://4lgmyqrfbt85" path="res://assets/res/tileset.tres" id="1_bfnr5"]
+[ext_resource type="PackedScene" uid="uid://bl6itdnogvhab" path="res://scenes/actors/enemies/bamboo_yellow.tscn" id="4_ib24q"]
 [ext_resource type="PackedScene" uid="uid://dx5gjq2qjnx4m" path="res://scenes/systems/enter_zone.tscn" id="5_0otxu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n71mr"]
@@ -20,9 +21,14 @@ layer_0/tile_data = PackedInt32Array(0, 196608, 11, 65536, 131072, 11, 131072, 1
 layer_1/name = "Collisions"
 layer_1/y_sort_enabled = true
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array(131075, 1, 0)
+layer_1/tile_data = PackedInt32Array(131075, 1, 0, 262154, 3, 65536, 327695, 1900545, 4, 131084, 1, 5)
+layer_2/name = "Front"
+layer_2/y_sort_enabled = true
+layer_2/z_index = 2
+layer_2/tile_data = PackedInt32Array(327695, 3, 131072)
 
 [node name="Elements" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="EnterZone" parent="Elements" instance=ExtResource("5_0otxu")]
 direction = "bottom"
@@ -30,3 +36,6 @@ direction = "bottom"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Elements/EnterZone"]
 position = Vector2(91.5, 133)
 shape = SubResource("RectangleShape2D_n71mr")
+
+[node name="BambooYellow" parent="Elements" instance=ExtResource("4_ib24q")]
+position = Vector2(161, 129)
