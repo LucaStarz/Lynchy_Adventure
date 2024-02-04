@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhc2job8yccs7"]
+
+[ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_ugfhi"]
+[ext_resource type="FontFile" uid="uid://cgnv8svhe8ws2" path="res://assets/fnt/pixel.ttf" id="2_dxljn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q8mh1"]
+font = ExtResource("2_dxljn")
+font_size = 18
+outline_size = 3
+outline_color = Color(0.160784, 0.160784, 0.160784, 1)
+
+[sub_resource type="Theme" id="Theme_wx01q"]
+default_font = ExtResource("2_dxljn")
+default_font_size = 15
+
+[sub_resource type="Theme" id="Theme_kslg5"]
+default_font = ExtResource("2_dxljn")
+default_font_size = 15
+
+[node name="MainMenu" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.321569, 0.321569, 0.321569, 1)
+script = ExtResource("1_ugfhi")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 24.0
+grow_horizontal = 2
+text = "Main   menu"
+label_settings = SubResource("LabelSettings_q8mh1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../ConfigButton")
+focus_neighbor_bottom = NodePath("../ConfigButton")
+theme = SubResource("Theme_wx01q")
+text = "Start game"
+
+[node name="ConfigButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -15.5
+offset_right = 33.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../StartButton")
+focus_neighbor_bottom = NodePath("../StartButton")
+theme = SubResource("Theme_kslg5")
+text = "Configs"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

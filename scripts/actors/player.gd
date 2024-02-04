@@ -9,7 +9,7 @@ var direction: String = "down"
 
 @onready var sprite: AnimatedSprite2D = $Sprite
 
-func move_player(delta: float):
+func move_player(delta: float) -> void:
 	var dir: Vector2 = Input.get_vector("left", "right", "up", "down")
 	if dir != Vector2.ZERO:
 		self.velocity = dir.normalized() * speed
@@ -20,7 +20,7 @@ func move_player(delta: float):
 	self.animate_player(dir)
 	self.move_and_slide()
 
-func animate_player(dir: Vector2):
+func animate_player(dir: Vector2) -> void:
 	if dir != Vector2.ZERO:
 		if dir.x < 0: self.direction = "left"
 		elif dir.x > 0: self.direction = "right"
@@ -32,6 +32,8 @@ func animate_player(dir: Vector2):
 	else:
 		self.sprite.play("idle_" + self.direction)
 
-func _physics_process(delta: float):
+func _physics_process(delta: float) -> void:
 	self.move_player(delta)
 
+func _ready() -> void:
+	self.global_position = DataSystem.player.position

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://7nhl2w0vrydy"]
+
+[ext_resource type="Script" path="res://scripts/systems/world_system.gd" id="1_q7qtu"]
+[ext_resource type="PackedScene" uid="uid://buk1gfycfkyvc" path="res://scenes/actors/players/player_green.tscn" id="2_50846"]
+
+[node name="WorldSystem" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_q7qtu")
+
+[node name="PlayerGreen" parent="." instance=ExtResource("2_50846")]
+
+[node name="Zones" type="Node2D" parent="."]
+y_sort_enabled = true
