@@ -1,4 +1,9 @@
-keys,en,fr,es
-title_corrupted,Corrupted   data,Données   corrompues,Datos   corrompidos
-title_main_menu,Main   menu,Menu   principal,Menú   principal
-button_start_main,Start game,Commencer,Comenzar
+keys,en,fr,es,de,pt,ru
+title_corrupted,Corrupted data,Données corrompues,Datos corrompidos,Beschädigte Daten,Dados corrompidos,Поврежденные данные
+title_main_menu,Main menu,Menu principal,Menú principal,Hauptmenü,Menu principal,Главное меню
+button_start_main,Start game,Commencer,Comenzar,Spiel beginnen,Começar o jogo,Начать игру
+button_quit_main,Quit game,Quitter le jeu,Salir del juego,Spiel verlassen,Desistir do jogo,Выйти из игры
+button_config_main,Configs,Configurations,Configuraciones,Konfigurationen,Configurações,Конфиги
+infos_corrupted,Corrupted save data was found. Please click the button below to try to remove them and restart the game.,Des données de sauvegardes corrompues ont été trouvées. Veuillez cliquer sur le bouton ci-dessous pour essayer de les supprimer et de relancer le jeu.,Se encontraron datos guardados dañados. Haz clic en el botón a continuación para intentar eliminarlos y reiniciar el juego.,"Es wurden beschädigte Speicherdaten gefunden. Bitte klicken Sie auf die Schaltfläche unten, um zu versuchen, sie zu entfernen und das Spiel neu zu starten.",Dados salvos corrompidos foram encontrados. Clique no botão abaixo para tentar removê-los e reiniciar o jogo.,"Обнаружены поврежденные данные сохранения. Пожалуйста, нажмите кнопку ниже, чтобы попытаться удалить их и перезапустить игру."
+failure_corrupted,Failed to delete data. Please restart the game or download it again.,Échec de la suppression des données. Veuillez relancer le jeu ou le télécharger de nouveau.,No se pudieron eliminar los datos. Reinicia el juego o descárgalo nuevamente.,Daten konnten nicht gelöscht werden. Bitte starten Sie das Spiel neu oder laden Sie es erneut herunter.,Falha ao excluir dados. Reinicie o jogo ou baixe-o novamente.,"Не удалось удалить данные. Пожалуйста, перезапустите игру или загрузите ее еще раз."
+button_reload_corrupted,Erase data,Effacer les données,Borrar datos,Löschen von Daten,Apagar dados,Стереть данные

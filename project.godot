@@ -119,13 +119,14 @@ action_2={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://assets/txt/Translations.en.translation", "res://assets/txt/Translations.es.translation", "res://assets/txt/Translations.fr.translation")
+locale/translations=PackedStringArray("res://assets/txt/Translations.en.translation", "res://assets/txt/Translations.es.translation", "res://assets/txt/Translations.fr.translation", "res://assets/txt/Translations.de.translation", "res://assets/txt/Translations.pt.translation", "res://assets/txt/Translations.ru.translation")
 
 [layer_names]
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Enemy"
 2d_physics/layer_3="Environment"
+2d_physics/layer_4="Talkable"
 
 [rendering]
 

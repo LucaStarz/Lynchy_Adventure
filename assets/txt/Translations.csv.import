@@ -6,10 +6,10 @@ uid="uid://jvhk2emgavtr"
 
 [deps]
 
-files=["res://assets/txt/Translations.en.translation", "res://assets/txt/Translations.fr.translation", "res://assets/txt/Translations.es.translation"]
+files=["res://assets/txt/Translations.en.translation", "res://assets/txt/Translations.fr.translation", "res://assets/txt/Translations.es.translation", "res://assets/txt/Translations.de.translation", "res://assets/txt/Translations.pt.translation", "res://assets/txt/Translations.ru.translation"]
 
 source_file="res://assets/txt/Translations.csv"
-dest_files=["res://assets/txt/Translations.en.translation", "res://assets/txt/Translations.fr.translation", "res://assets/txt/Translations.es.translation"]
+dest_files=["res://assets/txt/Translations.en.translation", "res://assets/txt/Translations.fr.translation", "res://assets/txt/Translations.es.translation", "res://assets/txt/Translations.de.translation", "res://assets/txt/Translations.pt.translation", "res://assets/txt/Translations.ru.translation"]
 
 [params]
 

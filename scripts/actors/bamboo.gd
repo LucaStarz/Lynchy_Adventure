@@ -1,13 +1,8 @@
-extends CharacterBody2D
+extends AttackActor
 
 class_name Bamboo
 
-@export_group("Characteristics")
-@export var speed: float = 40.0
-@export var damage: int = 1
-
 @onready var sprite: AnimatedSprite2D = $Sprite
-var direction: String = "down"
 var goto: Player
 
 func animate_bamboo() -> void:
@@ -35,8 +30,11 @@ func _physics_process(_delta: float) -> void:
 	self.move_bamboo()
 	self.animate_bamboo()
 
-func _on_enter_zone_is_enter_zone(player: Player, _dir: String) -> void:
-	self.goto = player
+func _on_enter_zone_is_enter_zone(entity: Node2D) -> void:
+	self.goto = entity as Player
 
-func _on_enter_zone_is_left_zone(_player: Player, _dir: String) -> void:
+func _on_enter_zone_is_left_zone(_player: Node2D) -> void:
 	self.goto = null
+
+func _on_player_hurt_is_enter_zone(entity: Node2D) -> void:
+	entity.take_damage(self.damage)

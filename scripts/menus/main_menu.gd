@@ -2,13 +2,13 @@ extends ColorRect
 
 @onready var world: Resource = preload("res://scenes/systems/world_system.tscn")
 
-@onready var title: Label = $Title
-@onready var start: Button = $Buttons/StartButton
-
 func _ready() -> void:
-	self.start.grab_focus()
-	self.title.text = tr("title_main_menu")
-	self.start.text = tr("button_start_main")
+	$Buttons/StartButton.grab_focus()
+	
+	$Title.text = tr("title_main_menu")
+	$Buttons/StartButton.text = tr("button_start_main")
+	$Buttons/ConfigButton.text = tr("button_config_main")
+	$Buttons/QuitButton.text = tr("button_quit_main")
 
 
 func _on_start_button_pressed() -> void:

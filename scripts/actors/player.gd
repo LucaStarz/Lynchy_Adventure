@@ -1,13 +1,17 @@
-extends CharacterBody2D
+extends AttackActor
 
 class_name Player
 
-@export var speed: float = 100.0
-var decel: float = speed * 9
+signal player_goto(direction: String)
 
-var direction: String = "down"
-
+var decel: float
 @onready var sprite: AnimatedSprite2D = $Sprite
+
+func take_damage(dmg: int) -> void:
+	self.health -= dmg
+	if self.health < 0:
+		self.health = 12
+		print("dead")
 
 func move_player(delta: float) -> void:
 	var dir: Vector2 = Input.get_vector("left", "right", "up", "down")
@@ -32,8 +36,21 @@ func animate_player(dir: Vector2) -> void:
 	else:
 		self.sprite.play("idle_" + self.direction)
 
+func is_player_goto() -> void:
+	if self.global_position.x < self.global_scale.x and self.direction == "left":
+		self.player_goto.emit("left")
+	elif self.global_position.x > get_parent().current.width and self.direction == "right":
+		self.player_goto.emit("right")
+	elif self.global_position.y < self.global_scale.y and self.direction == "up":
+		self.player_goto.emit("top")
+	elif self.global_position.y > get_parent().current.height and self.direction == "down":
+		self.player_goto.emit("bottom")
+
 func _physics_process(delta: float) -> void:
 	self.move_player(delta)
+	self.is_player_goto()
 
 func _ready() -> void:
+	self.decel = self.speed * 9
 	self.global_position = DataSystem.player.position
+	self.health = DataSystem.player.health

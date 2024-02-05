@@ -195,6 +195,9 @@ z_index = 1
 y_sort_enabled = true
 collision_mask = 4
 script = ExtResource("1_y44xp")
+health = 12
+damage = 1
+speed = 100.0
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cxsbp")

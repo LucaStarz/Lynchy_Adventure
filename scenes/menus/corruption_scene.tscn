@@ -1,12 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwwdekxyb3jvh"]
+[gd_scene load_steps=7 format=3 uid="uid://dwwdekxyb3jvh"]
 
-[ext_resource type="FontFile" uid="uid://cgnv8svhe8ws2" path="res://assets/fnt/pixel.ttf" id="1_53cr4"]
 [ext_resource type="Script" path="res://scripts/menus/corruption_scene.gd" id="1_y3ypn"]
+[ext_resource type="FontFile" uid="uid://cqo2nv3d0snnr" path="res://assets/fnt/unicode.ttf" id="2_qjdov"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y0b3r"]
-font = ExtResource("1_53cr4")
-font_size = 18
+font = ExtResource("2_qjdov")
+font_size = 25
 outline_size = 5
+outline_color = Color(0.564706, 0.215686, 0.14902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ywile"]
+font = ExtResource("2_qjdov")
+font_size = 12
+outline_size = 2
+outline_color = Color(0.564706, 0.215686, 0.14902, 1)
+
+[sub_resource type="Theme" id="Theme_dxijd"]
+default_font = ExtResource("2_qjdov")
+default_font_size = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_ua7so"]
+font = ExtResource("2_qjdov")
+font_size = 10
+outline_size = 2
 outline_color = Color(0.564706, 0.215686, 0.14902, 1)
 
 [node name="CorruptionScene" type="ColorRect"]
@@ -28,3 +44,50 @@ text = "Corrupted data"
 label_settings = SubResource("LabelSettings_y0b3r")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Informations" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -54.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Corrupted save data was found. Please click the button below to try to remove them and restart the game."
+label_settings = SubResource("LabelSettings_ywile")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ReloadButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -69.0
+offset_right = 43.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_dxijd")
+text = "Erase data"
+
+[node name="Failure" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Failed to delete data. Please restart the game or download it again."
+label_settings = SubResource("LabelSettings_ua7so")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="ReloadButton" to="." method="_on_reload_button_pressed"]

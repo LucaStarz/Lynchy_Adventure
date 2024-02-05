@@ -4,6 +4,7 @@
 
 [node name="EnterZone" type="Area2D"]
 collision_layer = 0
+collision_mask = 11
 script = ExtResource("1_3fd5l")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

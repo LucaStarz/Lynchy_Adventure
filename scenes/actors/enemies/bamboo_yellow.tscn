@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bl6itdnogvhab"]
+[gd_scene load_steps=28 format=3 uid="uid://bl6itdnogvhab"]
 
 [ext_resource type="Script" path="res://scripts/actors/bamboo.gd" id="1_x7irw"]
 [ext_resource type="Texture2D" uid="uid://bplo36ar352yo" path="res://assets/gfx/actors/enemies/bamboo/yellow/sprites.png" id="2_efnr1"]
@@ -193,14 +193,18 @@ size = Vector2(6, 12)
 [sub_resource type="CircleShape2D" id="CircleShape2D_86j2p"]
 radius = 85.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0p4t"]
+size = Vector2(10, 14)
+
 [node name="BambooYellow" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_x7irw")
-speed = 50.0
+health = 3
 damage = 2
+speed = 50.0
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
@@ -216,5 +220,13 @@ shape = SubResource("RectangleShape2D_lre2b")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnterZone"]
 shape = SubResource("CircleShape2D_86j2p")
 
+[node name="PlayerHurt" parent="." instance=ExtResource("3_pg5ow")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurt"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_d0p4t")
+debug_color = Color(0.807843, 0.329412, 0.65098, 0.419608)
+
 [connection signal="is_enter_zone" from="EnterZone" to="." method="_on_enter_zone_is_enter_zone"]
 [connection signal="is_left_zone" from="EnterZone" to="." method="_on_enter_zone_is_left_zone"]
+[connection signal="is_enter_zone" from="PlayerHurt" to="." method="_on_player_hurt_is_enter_zone"]

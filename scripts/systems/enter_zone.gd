@@ -2,13 +2,11 @@ extends Area2D
 
 class_name EnterZone
 
-@export_enum("left", "right", "top", "bottom") var direction: String
-
-signal is_enter_zone(player: Player, dir: String)
-signal is_left_zone(player: Player, dir: String)
+signal is_enter_zone(entity: Node2D)
+signal is_left_zone(entity: Node2D)
 
 func _on_body_entered(body: Node2D) -> void:
-	self.is_enter_zone.emit(body, self.direction)
+	self.is_enter_zone.emit(body)
 
 func _on_body_exited(body: Node2D) -> void:
-	self.is_left_zone.emit(body, self.direction)
+	self.is_left_zone.emit(body)
