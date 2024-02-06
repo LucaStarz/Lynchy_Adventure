@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1pq1abr8gb5x"]
+
+[ext_resource type="Script" path="res://scripts/menus/pause_menu.gd" id="1_5a2xt"]
+[ext_resource type="FontFile" uid="uid://cqo2nv3d0snnr" path="res://assets/fnt/unicode.ttf" id="2_y5sdo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fufuo"]
+font = ExtResource("2_y5sdo")
+font_size = 20
+
+[sub_resource type="Theme" id="Theme_gnhci"]
+default_font = ExtResource("2_y5sdo")
+default_font_size = 15
+
+[node name="PauseMenu" type="Panel"]
+process_mode = 3
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -85.0
+offset_right = 155.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5a2xt")
+
+[node name="Titre" type="Label" parent="."]
+top_level = true
+z_index = 10
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 2.0
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "Pause menu"
+label_settings = SubResource("LabelSettings_fufuo")
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="."]
+top_level = true
+z_index = 11
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -53.0
+offset_right = 45.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../MainMenuButton")
+focus_neighbor_bottom = NodePath("../MainMenuButton")
+theme = SubResource("Theme_gnhci")
+text = "Resume"
+
+[node name="MainMenuButton" type="Button" parent="."]
+top_level = true
+z_index = 11
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -11.0
+offset_right = 45.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../ResumeButton")
+focus_neighbor_bottom = NodePath("../ResumeButton")
+theme = SubResource("Theme_gnhci")
+text = "Main menu"
+
+[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]

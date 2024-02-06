@@ -130,13 +130,10 @@ func _ready() -> void:
 	self.config = ConfigData.new()
 	if not self.config.read(): self.goto_corruption_scene()
 	
-	self.__DEBUG__()
+	#self.__DEBUG__()
 	
 	if self.config.lang not in TranslationServer.get_loaded_locales(): self.config.lang = "en"
 	TranslationServer.set_locale(self.config.lang)
-
-func _exit_tree() -> void:
-	self.launch_save()
 
 func goto_corruption_scene() -> void:
 	await get_tree().tree_changed
@@ -160,4 +157,4 @@ func launch_save() -> void:
 	self.config.write()
 
 func __DEBUG__() -> void:
-	self.config.lang = "fr"
+	self.config.lang = "de"

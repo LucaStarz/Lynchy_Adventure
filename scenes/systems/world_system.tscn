@@ -1,8 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://7nhl2w0vrydy"]
+[gd_scene load_steps=3 format=3 uid="uid://7nhl2w0vrydy"]
 
 [ext_resource type="Script" path="res://scripts/systems/world_system.gd" id="1_q7qtu"]
+[ext_resource type="PackedScene" uid="uid://b1pq1abr8gb5x" path="res://scenes/menus/pause_menu.tscn" id="2_oxg1a"]
 
 [node name="WorldSystem" type="Node2D"]
 process_mode = 3
 y_sort_enabled = true
 script = ExtResource("1_q7qtu")
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_oxg1a")]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 315.0
+offset_bottom = 175.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.001
+autostart = true

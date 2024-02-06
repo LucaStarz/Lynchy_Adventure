@@ -4,13 +4,10 @@
 [ext_resource type="TileSet" uid="uid://4lgmyqrfbt85" path="res://assets/res/tileset.tres" id="2_aq18n"]
 
 [node name="TestScene2" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_icylp")
 id = 1
-width = 320
-height = 180
-right = -1
-top = -1
-bottom = -1
+left = 0
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_aq18n")

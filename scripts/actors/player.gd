@@ -11,7 +11,8 @@ func take_damage(dmg: int) -> void:
 	self.health -= dmg
 	if self.health < 0:
 		self.health = 12
-		print("dead")
+		self.sprite.play("dead")
+		self.process_mode = Node.PROCESS_MODE_DISABLED
 
 func move_player(delta: float) -> void:
 	var dir: Vector2 = Input.get_vector("left", "right", "up", "down")
@@ -39,11 +40,11 @@ func animate_player(dir: Vector2) -> void:
 func is_player_goto() -> void:
 	if self.global_position.x < self.global_scale.x and self.direction == "left":
 		self.player_goto.emit("left")
-	elif self.global_position.x > get_parent().current.width and self.direction == "right":
+	elif self.global_position.x > 320 and self.direction == "right":
 		self.player_goto.emit("right")
 	elif self.global_position.y < self.global_scale.y and self.direction == "up":
 		self.player_goto.emit("top")
-	elif self.global_position.y > get_parent().current.height and self.direction == "down":
+	elif self.global_position.y > 180 and self.direction == "down":
 		self.player_goto.emit("bottom")
 
 func _physics_process(delta: float) -> void:
