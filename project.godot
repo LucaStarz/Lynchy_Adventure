@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Lynchy Adventure"
-config/description="A little 2D RPG telling the story of a little ninja in the Lynchy worlds"
+config/description="A little 2D RPG telling the story of a little ninja in the Lynchy world's"
 config/version="0.1.0"
 run/main_scene="res://scenes/menus/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")

@@ -74,8 +74,7 @@ class PlayerData:
 	
 	func write() -> bool:
 		var file: FileAccess = FileAccess.open_encrypted_with_pass(PlayerData.data_file(), FileAccess.WRITE, PlayerData.encryption())
-		if file == null: 
-			return false
+		if file == null: return false
 
 		var data: Dictionary = {
 			"zone": self.zone,
@@ -86,6 +85,34 @@ class PlayerData:
 		}
 		file.store_string(JSON.stringify(data))
 		return true
+
+class GlobalsData:
+	var blue_slime_killed: int = 0
+	var green_bamboo_killed: int = 0
+	var yellow_bamboo_killed: int = 0
+	
+	static func data_file() -> String:
+		return "user://globals.lad"
+	
+	static func encryption() -> String:
+		return "=#5gr8ZUrhSVY@S8$x55;*8_.66W/qW4J2nKy?4~M,c4-28%4AE[cvPaw(zS9Dgs"
+	
+	func read() -> bool:
+		
+		return true
+	
+	func write() -> bool:
+		var file: FileAccess = FileAccess.open_encrypted_with_pass(GlobalsData.data_file(), FileAccess.WRITE, GlobalsData.encryption())
+		if file == null: return false
+		
+		var data: Dictionary = {
+			"blue_slime": self.blue_slime_killed,
+			"green_bamboo": self.green_bamboo_killed,
+			"yellow_bamboo": self.yellow_bamboo_killed
+		}
+		file.store_string(JSON.stringify(data))
+		return true
+
 
 var player: PlayerData
 var config: ConfigData
