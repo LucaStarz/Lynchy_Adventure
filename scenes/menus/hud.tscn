@@ -1,0 +1,113 @@
+[gd_scene load_steps=12 format=3 uid="uid://nbx67pkhlqs2"]
+
+[ext_resource type="Script" path="res://scripts/menus/hud.gd" id="1_76pq8"]
+[ext_resource type="Texture2D" uid="uid://cf4dowp1j2f5m" path="res://assets/gfx/mobile/up.png" id="2_66104"]
+[ext_resource type="Texture2D" uid="uid://brybfg476lebh" path="res://assets/gfx/mobile/down.png" id="3_r0t06"]
+[ext_resource type="Texture2D" uid="uid://dwom5pmk5pugp" path="res://assets/gfx/mobile/left.png" id="4_urjem"]
+[ext_resource type="Texture2D" uid="uid://c3algmtfwniwh" path="res://assets/gfx/mobile/right.png" id="5_ouxyg"]
+[ext_resource type="Texture2D" uid="uid://74yrk3fq6gvm" path="res://assets/gfx/mobile/pause_menu.png" id="6_lo8nj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_78v6y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sjh72"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2nomh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1dk3k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gf4ab"]
+
+[node name="HUD" type="Control"]
+process_mode = 3
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_76pq8")
+
+[node name="Android" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonUp" type="Button" parent="Android"]
+layout_mode = 1
+offset_left = 25.0
+offset_top = 140.0
+offset_right = 94.0
+offset_bottom = 224.0
+scale = Vector2(0.15, 0.15)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_78v6y")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_sjh72")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2nomh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1dk3k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gf4ab")
+icon = ExtResource("2_66104")
+
+[node name="ButtonDown" type="Button" parent="Android"]
+layout_mode = 1
+offset_left = 25.0
+offset_top = 160.0
+offset_right = 94.0
+offset_bottom = 244.0
+scale = Vector2(0.15, 0.15)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_78v6y")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_sjh72")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2nomh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1dk3k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gf4ab")
+icon = ExtResource("3_r0t06")
+
+[node name="ButtonLeft" type="Button" parent="Android"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 151.0
+offset_right = 96.0
+offset_bottom = 220.0
+scale = Vector2(0.15, 0.15)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_78v6y")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_sjh72")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2nomh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1dk3k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gf4ab")
+icon = ExtResource("4_urjem")
+
+[node name="ButtonRight" type="Button" parent="Android"]
+layout_mode = 1
+offset_left = 35.0
+offset_top = 151.0
+offset_right = 119.0
+offset_bottom = 220.0
+scale = Vector2(0.15, 0.15)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_78v6y")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_sjh72")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2nomh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1dk3k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gf4ab")
+icon = ExtResource("5_ouxyg")
+
+[node name="ButtonPause" type="Button" parent="Android"]
+layout_mode = 1
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 60.0
+offset_bottom = 60.0
+scale = Vector2(0.15, 0.15)
+icon = ExtResource("6_lo8nj")
+
+[connection signal="button_down" from="Android/ButtonUp" to="." method="_on_button_up_button_down"]
+[connection signal="button_up" from="Android/ButtonUp" to="." method="_on_button_up_button_up"]
+[connection signal="button_down" from="Android/ButtonDown" to="." method="_on_button_down_button_down"]
+[connection signal="button_up" from="Android/ButtonDown" to="." method="_on_button_down_button_up"]
+[connection signal="button_down" from="Android/ButtonLeft" to="." method="_on_button_left_button_down"]
+[connection signal="button_up" from="Android/ButtonLeft" to="." method="_on_button_left_button_up"]
+[connection signal="button_down" from="Android/ButtonRight" to="." method="_on_button_right_button_down"]
+[connection signal="button_up" from="Android/ButtonRight" to="." method="_on_button_right_button_up"]
+[connection signal="button_down" from="Android/ButtonPause" to="." method="_on_button_pause_button_down"]
+[connection signal="button_up" from="Android/ButtonPause" to="." method="_on_button_pause_button_up"]

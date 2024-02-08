@@ -5,6 +5,9 @@ extends Node
 class ConfigData:
 	var lang: String = TranslationServer.get_locale()
 	var player: String = "green"
+	var onscreen: bool = false
+	var fullscreen: bool = false
+	var screen_size: Vector2i = Vector2(1920, 1080)
 	
 	static func data_file() -> String:
 		return "user://config.lad"
@@ -19,11 +22,13 @@ class ConfigData:
 			
 			var data: Dictionary = JSON.parse_string(file.get_as_text())
 			if data == null: return false
-			elif not data.has_all(["lang", "player"]): 
+			elif not data.has_all(["lang", "player", "onscreen", "full"]): 
 				return false
 			
 			self.lang = data.get("lang")
 			self.player = data.get("player")
+			self.onscreen = data.get("onscreen")
+			self.fullscreen = data.get("full")
 			return true
 		else:
 			return self.write()
@@ -34,7 +39,9 @@ class ConfigData:
 
 		var data: Dictionary = {
 			"lang": self.lang,
-			"player": self.player
+			"player": self.player,
+			"onscreen": self.onscreen,
+			"full": self.fullscreen
 		}
 		file.store_string(JSON.stringify(data))
 		return true
@@ -157,4 +164,5 @@ func launch_save() -> void:
 	self.config.write()
 
 func __DEBUG__() -> void:
-	self.config.lang = "de"
+	self.config.onscreen = true
+	self.config.lang = "fr"
